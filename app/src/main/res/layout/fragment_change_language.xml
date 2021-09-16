@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.changelanguage.ChangeLanguageFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_corner_dialog"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="30dp">
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/bradlefens"
+            android:text="@string/language_selection"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:textColor="@drawable/radio_text_color"
+                android:id="@+id/btn_uzbek"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_uzbekistan"
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/bradlefens"
+                android:paddingLeft="20dp"
+                android:text="Uzbek"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/btn_english"
+android:textColor="@drawable/radio_text_color"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/radio_button_selector"
+                android:button="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_united_states"
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/bradlefens"
+                android:paddingLeft="20dp"
+                android:text="English"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/btn_uzbek"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:layout_margin="8dp"-->
+        <!--            android:drawableLeft="@drawable/ic_uzbekistan"-->
+        <!--            android:fontFamily="@font/bradlefens"-->
+        <!--            android:paddingRight="50dp"-->
+        <!--            android:text="UZBEK"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="18sp"-->
+        <!--            app:cornerRadius="30dp"-->
+        <!--            />-->
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/btn_english"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:layout_margin="8dp"-->
+        <!--            android:drawableLeft="@drawable/ic_united_states"-->
+        <!--            android:fontFamily="@font/bradlefens"-->
+        <!--            android:paddingRight="50dp"-->
+        <!--            android:text="ENGLISH"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="18sp"-->
+        <!--            app:cornerRadius="30dp"-->
+        <!--            />-->
+
+
+    </LinearLayout>
+
+</FrameLayout>
