@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".app.App"
@@ -16,6 +17,8 @@
         android:theme="@style/Theme.OnlineShop"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".view.GmailActivity"></activity>
+        <activity android:name=".view.login.LoginActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -24,12 +27,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".screen.MainActivity" />
-
-        <activity android:name=".screen.MakeOrderActivity" />
-        <activity android:name=".screen.DetailActivity" />
+        <activity android:name=".view.MainActivity"/>
+        <activity android:name=".view.makeOrder.MakeOrderActivity" />
+        <activity android:name=".view.DetailActivity" />
         <activity
-            android:name=".screen.SplashActivity"
+            android:name=".view.splash.SplashActivity"
             tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +39,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".checkinternet.NetworkChangeListener">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

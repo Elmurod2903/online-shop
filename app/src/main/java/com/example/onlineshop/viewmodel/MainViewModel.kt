@@ -3,10 +3,8 @@ package com.example.onlineshop.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.onlineshop.db.MyDatabase
-import com.example.onlineshop.model.CategoryModel
-import com.example.onlineshop.model.OfferModel
-import com.example.onlineshop.model.TopProductModel
-import com.example.onlineshop.model.network.repository.ShopRepository
+import com.example.onlineshop.model.*
+import com.example.onlineshop.model.repository.ShopRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,10 +15,32 @@ open class MainViewModel : ViewModel() {
 
     var offerData = MutableLiveData<List<OfferModel>>()
     var categoryData = MutableLiveData<List<CategoryModel>>()
-    val topProductData = MutableLiveData<List<TopProductModel>>()
+    var topProductData = MutableLiveData<List<TopProductModel>>()
     val progress = MutableLiveData<Boolean>()
+    val checkPhoneData = MutableLiveData<CheckPhoneResponse>()
+    val registrationData = MutableLiveData<Boolean>()
+    val confirmData = MutableLiveData<LoginResponse>()
+    val loginData = MutableLiveData<LoginResponse>()
+
+    private val makeOrderData = MutableLiveData<Boolean>()
 
     private val shopRepository = ShopRepository()
+
+    fun checkPhone(phone: String) {
+        shopRepository.checkPhone(phone, error, progress, checkPhoneData)
+    }
+
+    fun registrationData(fullname: String, phone: String, password: String) {
+        shopRepository.registration(fullname, phone, password, error, progress, registrationData)
+    }
+
+    fun login(phone: String, password: String) {
+        shopRepository.login(phone, password, error, progress, loginData)
+    }
+
+    fun confirmUser(phone: String, code: String) {
+        shopRepository.confirmUser(phone, code, error, progress, confirmData)
+    }
 
     fun getOffers() {
         shopRepository.getOffers(error, progress, offerData)
@@ -62,7 +82,7 @@ open class MainViewModel : ViewModel() {
         CoroutineScope(Dispatchers.Main).launch {
             topProductData.value = withContext(Dispatchers.IO) {
                 MyDatabase.getDatabase().productDao().getAllProducts()
-            }
+            }!!
 
         }
     }
@@ -71,10 +91,14 @@ open class MainViewModel : ViewModel() {
         CoroutineScope(Dispatchers.Main).launch {
             categoryData.value = withContext(Dispatchers.IO) {
                 MyDatabase.getDatabase().categoryDao().getAllCategories()
-            }
+            }!!
 
         }
 
+    }
+
+    fun makeOrder(products: List<CartModel>, lat: Double, lon: Double, comment: String) {
+        shopRepository.makeOrder(products, lat, lon, comment, error, progress, makeOrderData)
     }
 
 }

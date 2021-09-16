@@ -7,7 +7,11 @@ import com.orhanobut.hawk.Hawk
 object PrefUtils {
     private const val PREF_FAVORITE = "pref_utils"
     private const val PREF_CART = "pref_cart"
-
+    private const val PREF_TOKEN = "pref_token"
+    private const val PREF_NAME = "pref_name"
+    private const val PREF_GMAIL_NAME = "pref_gmail_name"
+    private const val PREF_NUMBER = "pref_number"
+    private const val PREF_FCM_TOKEN = "pref_fcm_token"
 
     fun setFavorites(item: TopProductModel) {
         val items = Hawk.get(PREF_FAVORITE, arrayListOf<Int>())
@@ -54,7 +58,47 @@ object PrefUtils {
 
     fun getCartCount(item: TopProductModel): Int {
         val items = Hawk.get<ArrayList<CartModel>>(PREF_CART, arrayListOf())
-        return items.firstOrNull { it.product_id == item.id }?.count ?:0
+        return items.firstOrNull { it.product_id == item.id }?.count ?: 0
+    }
+
+    fun setToken(value: String) {
+        Hawk.put(PREF_TOKEN, value)
+    }
+
+    fun getToken(): String {
+        return Hawk.get(PREF_TOKEN, "")
+    }
+
+    fun setFCMToken(value: String) {
+        Hawk.put(PREF_FCM_TOKEN, value)
+    }
+
+    fun getFCMToken(): String {
+        return Hawk.get(PREF_FCM_TOKEN, "")
+    }
+
+    fun setFullName(value: String) {
+        Hawk.put(PREF_NAME, value)
+    }
+
+    fun setNumber(value: String) {
+        Hawk.put(PREF_NUMBER, value)
+    }
+
+    fun getFullName(): String {
+        return Hawk.get(PREF_NAME, "")
+    }
+
+    fun getNumber(): String {
+        return Hawk.get(PREF_NUMBER, "")
+    }
+
+    fun setNewGmail(value: String) {
+        Hawk.put(PREF_GMAIL_NAME, value)
+    }
+
+    fun getNewGmail(): String {
+        return Hawk.get(PREF_GMAIL_NAME, "")
     }
 
 }

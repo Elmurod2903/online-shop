@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Online Shop</string>
+    <string name="title_activity_maps">Xarita</string>
+    <string name="make_order">Buyurtma berish</string>
+    <string name="language_selection">Tilni tanlash</string>
+    <string name="detail">Tafsilotlar</string>
+    <string name="home">Asosiy</string>
+    <string name="favorite">Sevimlilar</string>
+    <string name="cart">Savatcha</string>
+    <string name="profile">Profil</string>
+    <string name="delivery_address">Yetkazib berish manzili</string>
+    <string name="comment">Izoh</string>
+    <string name="add_to_cart">Savatchaga qo\'shish</string>
+    <string name="new_gmail">Yangi pochta</string>
+    <string name="email_is_not">Elektron pochta bog\'lanmagan</string>
+    <string name="telefon">Telefon</string>
+    <string name="email_name">Elektron pochta</string>
+    <string name="confirm_address">manzilni tasdiqlash</string>
+    <string name="categories">Toifalar</string>
+    <string name="see_all_products">Barcha mahsulotlarni ko\'rish</string>
+    <string name="save">Saqlash</string>
+
+    <string name="pochtangizni_qo_shing">Pochtangizni qo\'shing</string>
+
+</resources>
