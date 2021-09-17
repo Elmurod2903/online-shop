@@ -1,4 +1,4 @@
-# online-shop
+# Online Shop
 
 ## 1. Splash page
 ![splash page 1](https://user-images.githubusercontent.com/82223231/133730362-f2e8a573-85a6-4e97-9cae-92ad67a193b3.jpg)
@@ -14,10 +14,14 @@ use lottie animation for splash
 ## 4. Login page 2
 ![login page 2](https://user-images.githubusercontent.com/82223231/133731706-5247bb3b-4c96-4daf-96ec-c28a7d45403a.jpg)
 
-## 5. Home page 
+## 5. Home page fragment
 ![home page](https://user-images.githubusercontent.com/82223231/133732026-3d23bc9c-5d8b-47cb-94b9-c8960935dbb2.jpg)
 
 use bottonNavigationView with fragment 
+## 6. Favorite page fragment
+![favorite page](https://user-images.githubusercontent.com/82223231/133732416-0fecc249-bd6a-4512-b06b-48aa74585cad.jpg)
+
+
 
 
 
