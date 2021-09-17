@@ -27,6 +27,8 @@ use bottonNavigationView with fragment
 ## 8. Make Order page
 ![make order page](https://user-images.githubusercontent.com/82223231/133732788-76c5cfd5-df1e-44bc-9f60-41520051e200.jpg)
 
+## 9. Profile gape fragment
+![profile page](https://user-images.githubusercontent.com/82223231/133732938-320c3e9a-71fa-4c05-ade0-6c4ce966d560.jpg)
 
 
 
