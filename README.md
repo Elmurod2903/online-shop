@@ -35,12 +35,9 @@ use bottonNavigationView with fragment
 
 ## 11. Change language page
 ![change language](https://user-images.githubusercontent.com/82223231/133733235-3a1d91c2-472a-40c7-89c9-e1663eeb6adc.jpg)
-
-used bottomSheetDialogFragment
-
 ![change language 2](https://user-images.githubusercontent.com/82223231/133733600-92147328-8375-4f0c-811d-47bb1800674f.jpg)
-
 ![change language 3](https://user-images.githubusercontent.com/82223231/133733680-b81e839c-ffae-48b1-94fd-4423229edc09.jpg)
+used bottomSheetDialogFragment
 
 ## 12. No internet connection dialog 
 ![no internet connec page](https://user-images.githubusercontent.com/82223231/133733939-326f5d9b-ea32-4e7e-bec1-36a546c947ee.jpg)
