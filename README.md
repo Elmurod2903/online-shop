@@ -1,12 +1,22 @@
 # Online Shop
 
+### used -> RxJava, Room , MVVM Design Pattern, LiveData Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
+
+ Ilova MVVM asosida qurilgan ya'ni model , view, viewmodel. 
+ 
+ Ilova serverdan ma'lumotlarni o'qiydi va ma'lumotlarni serverga ham jo'natadi. Bundan tashqari ko'pgina amallarni ham bajaradi.    
+ 
+ Bu ilova quyidagi oynalardan tashkil topgan:
+  
 ## 1. Splash page
 ![splash page 1](https://user-images.githubusercontent.com/82223231/133730362-f2e8a573-85a6-4e97-9cae-92ad67a193b3.jpg)
 
-use lottie animation for splash 
+used lottie animation for splash 
 
 ## 2. Login page
 ![login page1](https://user-images.githubusercontent.com/82223231/133731142-c6f9f713-7930-483b-b5da-167a10c0bf25.jpg)
+
+Bu login page da biz tel raqamizni kiritamiz va u serverga jo'natiladi
 
 ## 3. Registration page
 ![registration page](https://user-images.githubusercontent.com/82223231/133731468-93980536-72aa-432e-a1f9-e68af7a0687b.jpg)
@@ -18,6 +28,8 @@ use lottie animation for splash
 ![home page](https://user-images.githubusercontent.com/82223231/133732026-3d23bc9c-5d8b-47cb-94b9-c8960935dbb2.jpg)
 
 use bottonNavigationView with fragment 
+
+Home page da barcha mahsulotlar va mahsulotlar kategoriyasi bo'ladi. Xoxlagan mahsulotimizni categories qarab topish mumkin. 
 ## 6. Favorite page fragment
 ![favorite page](https://user-images.githubusercontent.com/82223231/133732416-0fecc249-bd6a-4512-b06b-48aa74585cad.jpg)
 
