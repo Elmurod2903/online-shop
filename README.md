@@ -21,6 +21,9 @@ use bottonNavigationView with fragment
 ## 6. Favorite page fragment
 ![favorite page](https://user-images.githubusercontent.com/82223231/133732416-0fecc249-bd6a-4512-b06b-48aa74585cad.jpg)
 
+## 7. Cart page fragment
+![cart page](https://user-images.githubusercontent.com/82223231/133732644-bbd69ec4-6ec8-4952-bbe7-64d015f687d9.jpg)
+
 
 
 
