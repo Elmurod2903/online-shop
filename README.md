@@ -30,6 +30,9 @@ use bottonNavigationView with fragment
 ## 9. Profile gape fragment
 ![profile page](https://user-images.githubusercontent.com/82223231/133732938-320c3e9a-71fa-4c05-ade0-6c4ce966d560.jpg)
 
+## 10. Add your email 
+![add your email](https://user-images.githubusercontent.com/82223231/133733060-de7f89c5-bb46-4e02-b042-1bdac736302e.jpg)
+
 
 
 
