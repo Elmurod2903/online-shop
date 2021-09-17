@@ -24,6 +24,10 @@ use bottonNavigationView with fragment
 ## 7. Cart page fragment
 ![cart page](https://user-images.githubusercontent.com/82223231/133732644-bbd69ec4-6ec8-4952-bbe7-64d015f687d9.jpg)
 
+## 8. Make Order page
+![make order page](https://user-images.githubusercontent.com/82223231/133732788-76c5cfd5-df1e-44bc-9f60-41520051e200.jpg)
+
+
 
 
 
