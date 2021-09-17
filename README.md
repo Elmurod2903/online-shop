@@ -17,7 +17,7 @@ use lottie animation for splash
 ## 5. Home page 
 ![home page](https://user-images.githubusercontent.com/82223231/133732026-3d23bc9c-5d8b-47cb-94b9-c8960935dbb2.jpg)
 
-use bottomnavigationview with fragment 
+use bottonNavigationView with fragment 
 
 
 
