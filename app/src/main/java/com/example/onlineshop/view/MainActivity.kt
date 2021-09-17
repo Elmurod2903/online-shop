@@ -225,4 +225,12 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
     }
 
+    override fun onBackPressed() {
+        if (Common.isConnectToInternet(this)){
+            showInternetDialog()
+        }else{
+            super.onBackPressed()
+        }
+    }
+
 }
