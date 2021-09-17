@@ -38,6 +38,11 @@ use bottonNavigationView with fragment
 
 used bottomSheetDialogFragment
 
+![change language 2](https://user-images.githubusercontent.com/82223231/133733600-92147328-8375-4f0c-811d-47bb1800674f.jpg)
+
+![change language 3](https://user-images.githubusercontent.com/82223231/133733680-b81e839c-ffae-48b1-94fd-4423229edc09.jpg)
+
+
 
 
 
