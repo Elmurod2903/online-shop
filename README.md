@@ -1,6 +1,6 @@
 # Online Shop
 
-### used -> RxJava, Room , MVVM Design Pattern, LiveData , Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
+### Used -> RxJava, Room , MVVM Design Pattern, LiveData , Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
 
  Ilova MVVM asosida qurilgan ya'ni model , view, viewmodel. 
  
