@@ -18,7 +18,7 @@ used lottie animation for splash
 ![registration page](https://user-images.githubusercontent.com/82223231/133731468-93980536-72aa-432e-a1f9-e68af7a0687b.jpg)
 ![login page 2](https://user-images.githubusercontent.com/82223231/133731706-5247bb3b-4c96-4daf-96ec-c28a7d45403a.jpg)
 
-Bu  page da  tel raqami, full name, password kiritiladi va u serverga jo'natiladi
+Bu  page da  tel number, full name, password kiritiladi va u serverga jo'natiladi, va ilova kirish uchun ham kiritgan ma'lumotlardan foydalaniladi.
 
 
 ## 3. Home page fragment
