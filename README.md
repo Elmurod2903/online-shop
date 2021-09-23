@@ -2,7 +2,7 @@
 
 ### Used -> RxJava, Room , MVVM Design Pattern, LiveData , Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
 
- Ilova MVVM asosida qurilgan ya'ni model , view, viewmodel. 
+
  
  Ilova serverdan ma'lumotlarni o'qiydi va ma'lumotlarni serverga ham jo'natadi. Bundan tashqari ko'pgina amallarni ham bajaradi.    
  
