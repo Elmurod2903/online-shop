@@ -1,6 +1,6 @@
 # Online Shop
 
-### Used -> RxJava, Room , MVVM Design Pattern, LiveData , Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
+### Used -> RxJava, Room , ViewModel, LiveData , Coroutines, lottie anim , eventbus, Hawk, Retrofit, Google map, BroadCastReciever va others
 
 
  
