@@ -27,7 +27,7 @@
                 app:contentPadding="10dp">
 
                 <ImageView
-                    android:background="@drawable/item_click_back"
+                    android:background="?selectableItemBackgroundBorderless"
                     android:id="@+id/arrow_image"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -59,7 +59,7 @@
                 app:contentPadding="10dp">
 
                 <ImageView
-                    android:background="@drawable/item_click_back"
+                    android:background="?selectableItemBackgroundBorderless"
                     android:id="@+id/favorite"
                     android:layout_width="20dp"
                     android:layout_height="20dp"

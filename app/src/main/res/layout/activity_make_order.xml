@@ -27,10 +27,10 @@
                 app:contentPadding="10dp">
 
                 <ImageView
-                    android:background="@drawable/item_click_back"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
+                    android:background="?selectableItemBackgroundBorderless"
                     android:paddingLeft="4dp"
                     android:src="@drawable/ic_arrow_back" />
             </androidx.cardview.widget.CardView>
@@ -82,8 +82,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxCornerRadiusBottomEnd="10dp"
                     android:textColorHint="@color/purple_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp">
@@ -109,12 +109,12 @@
                     app:boxCornerRadiusTopStart="10dp">
 
                     <EditText
-                        android:inputType="text"
                         android:id="@+id/et_comment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/insomniaregular"
-                        android:hint="@string/comment" />
+                        android:hint="@string/comment"
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -156,6 +156,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/flProgress"
         android:layout_width="match_parent"
@@ -163,16 +164,15 @@
         android:background="#77000000"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
 
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
-            android:tint="@color/gray"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:tint="@color/gray"
             app:lottie_autoPlay="true"
             app:lottie_fileName="874-pulse-loader.json"
             app:lottie_loop="true" />
