@@ -20,7 +20,10 @@
     <string name="categories">Toifalar</string>
     <string name="see_all_products">Barcha mahsulotlarni ko\'rish</string>
     <string name="save">Saqlash</string>
-
     <string name="pochtangizni_qo_shing">Pochtangizni qo\'shing</string>
+    <string name="no_internet_connection">Internetga ulanish yo\'q</string>
+    <string name="no_internet_txt">Internetga ulanishingiz hozircha  mavjud emas iltimos tekshirib ko\'ring</string>
+    <string name="no">Yo\'q</string>
+    <string name="yes">Ha</string>
 
 </resources>

@@ -1,19 +1,23 @@
 package com.example.onlineshop.view
 
 import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.app.Dialog
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.IntentFilter
+import android.app.Service
+import android.content.*
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +35,9 @@ import com.example.onlineshop.view.favorite.FavoriteFragment
 import com.example.onlineshop.view.home.HomeFragment
 import com.example.onlineshop.view.profile.ProfileFragment
 import com.example.onlineshop.utils.LocaleManager
+import com.example.onlineshop.utils.PrefUtils
 import com.example.onlineshop.viewmodel.MainViewModel
+import java.security.Provider
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,17 +53,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
 
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        broadcastReceiver = NetworkChangeListener()
-        if (Common.isConnectToInternet(this)) {
-            showInternetDialog()
-        }
         viewModel = MainViewModel()
-
+        broadcastReceiver = NetworkChangeListener(this, this)
         viewModelObserver()
         generateSupportFragment()
         viewBinding.bottonNavigationView.setOnItemSelectedListener { item ->
@@ -71,35 +75,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showInternetDialog() {
-
-        //init dialog
-        val alertDialog = Dialog(this)
-        // set content view
-        alertDialog.setContentView(R.layout.no_internet_dialog)
-
-        // set outside view
-        alertDialog.setCanceledOnTouchOutside(false)
-
-        //set transparent background
-        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        // set animation
-        alertDialog.window?.attributes?.windowAnimations = android.R.style.Animation_Dialog
-        //init variable
-        val btnTry = alertDialog.findViewById<View>(R.id.btn_try_again)
-        btnTry.setOnClickListener {
-            recreate()
-        }
-        val btnClose = alertDialog.findViewById<View>(R.id.btn_close)
-        btnClose.setOnClickListener {
-            alertDialog.dismiss()
-            Toast.makeText(this, "offline connection", Toast.LENGTH_SHORT).show()
-        }
-        // show dialog
-        alertDialog.show()
-
-    }
-
 
     private fun loadSettings() {
         viewBinding.ivSetting.setOnClickListener {
@@ -107,6 +82,8 @@ class MainActivity : AppCompatActivity() {
             fragmentChangeLanguage.show(supportFragmentManager, fragmentChangeLanguage.tag)
         }
     }
+
+
 
     private fun createProfile() {
         viewBinding.userProfile.setOnClickListener {
@@ -123,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding.cardUser.visibility = View.GONE
         viewBinding.ivSetting.visibility = View.VISIBLE
         viewBinding.bottonNavigationView.selectedItemId = R.id.profile
+//        viewBinding.userProfile.setImageResource(PrefUtils.getImageUser().toInt())
     }
 
     private fun navigationSelected(item: MenuItem) {
@@ -145,7 +123,6 @@ class MainActivity : AppCompatActivity() {
                 viewBinding.tvTitleNav.text = resources.getString(R.string.cart)
                 viewBinding.cardUser.visibility = View.VISIBLE
                 viewBinding.ivSetting.visibility = View.GONE
-
 
             }
             R.id.favorite -> {
@@ -214,6 +191,15 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(LocaleManager.setLocale(newBase))
     }
 
+    override fun onResume() {
+        super.onResume()
+        this.registerReceiver(
+            this.broadcastReceiver,
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        )
+
+    }
+
     override fun onStart() {
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(broadcastReceiver, intentFilter)
@@ -223,14 +209,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         unregisterReceiver(broadcastReceiver)
         super.onStop()
-    }
-
-    override fun onBackPressed() {
-        if (Common.isConnectToInternet(this)){
-            showInternetDialog()
-        }else{
-            super.onBackPressed()
-        }
     }
 
 }

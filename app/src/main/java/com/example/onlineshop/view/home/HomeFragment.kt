@@ -47,9 +47,7 @@ class HomeFragment : Fragment() {
             loadData()
         }
         viewModelObserve()
-
-        _binding?.rvCategory?.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        _binding?.rvCategory?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         loadData()
     }
 
@@ -97,6 +95,11 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadData()
     }
 
     companion object {

@@ -7,15 +7,15 @@
     tools:context=".view.splash.SplashActivity">
 
     <TextView
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/insomniaregular"
-        android:textColor="@color/purple_500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/insomniaregular"
         android:gravity="center"
-        android:text="Online    Shop" />
+        android:text="Online    Shop"
+        android:textColor="@color/purple_500"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
@@ -26,15 +26,16 @@
         app:lottie_fileName="874-pulse-loader.json"
         app:lottie_loop="true"
         tools:ignore="MissingConstraints" />
+
     <TextView
-        android:textSize="10sp"
-        android:layout_margin="2dp"
-        android:gravity="end"
-        android:layout_gravity="bottom"
-        android:fontFamily="@font/insomniaregular"
-        android:text="by ELmurod"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="2dp"
+        android:fontFamily="@font/insomniaregular"
+        android:gravity="end"
+        android:text="by ELmurod"
+        android:textSize="10sp" />
 
 
 </FrameLayout>

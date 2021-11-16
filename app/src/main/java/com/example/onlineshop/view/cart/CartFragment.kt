@@ -65,6 +65,11 @@ class CartFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadData()
+    }
+
     private fun loadData() {
         viewModel.getProductsById(PrefUtils.getCartList().map { it.product_id })
     }

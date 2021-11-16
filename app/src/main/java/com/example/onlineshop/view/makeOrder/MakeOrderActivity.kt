@@ -1,14 +1,20 @@
 package com.example.onlineshop.view.makeOrder
 
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.onlineshop.MapsActivity
+import com.example.onlineshop.checkinternet.NetworkChangeListener
 import com.example.onlineshop.databinding.ActivityMakeOrderBinding
 import com.example.onlineshop.model.AddressModel
 import com.example.onlineshop.model.CartModel
@@ -24,12 +30,15 @@ class MakeOrderActivity : AppCompatActivity() {
     private var addressItem: AddressModel? = null
     lateinit var items: List<TopProductModel>
     lateinit var viewModel: MainViewModel
+    private var broadcastReceiver: BroadcastReceiver? = null
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMakeOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        broadcastReceiver = NetworkChangeListener(this, this)
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
@@ -73,5 +82,16 @@ class MakeOrderActivity : AppCompatActivity() {
     fun onEventAddress(address: AddressModel) {
         addressItem = address
         binding.etAddress.setText("${address.latitude},${address.longitude}")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        registerReceiver(broadcastReceiver, intentFilter)
+    }
+
+    override fun onStop() {
+        unregisterReceiver(broadcastReceiver)
+        super.onStop()
     }
 }

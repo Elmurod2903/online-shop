@@ -1,5 +1,6 @@
 package com.example.onlineshop.view.favorite
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.onlineshop.R
 import com.example.onlineshop.databinding.FragmentFavoriteBinding
+import com.example.onlineshop.utils.LocaleManager
 import com.example.onlineshop.view.home.adapter.TopProductAdapter
 import com.example.onlineshop.utils.PrefUtils
 import com.example.onlineshop.viewmodel.MainViewModel
@@ -50,10 +52,21 @@ class FavoriteFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadData()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LocaleManager.setLocale(context)
+    }
+
+
+
     private fun loadData() {
         viewModel.getProductsById(PrefUtils.getFavoriteList())
     }
-
 
     companion object {
 

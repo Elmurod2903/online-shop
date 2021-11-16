@@ -1,5 +1,7 @@
 package com.example.onlineshop.utils
 
+import android.net.Uri
+import android.nfc.cardemulation.HostApduService
 import com.example.onlineshop.model.CartModel
 import com.example.onlineshop.model.TopProductModel
 import com.orhanobut.hawk.Hawk
@@ -12,6 +14,7 @@ object PrefUtils {
     private const val PREF_GMAIL_NAME = "pref_gmail_name"
     private const val PREF_NUMBER = "pref_number"
     private const val PREF_FCM_TOKEN = "pref_fcm_token"
+    private const val PREF_USER_IMAGE = "pref_user_image"
 
     fun setFavorites(item: TopProductModel) {
         val items = Hawk.get(PREF_FAVORITE, arrayListOf<Int>())
@@ -96,9 +99,16 @@ object PrefUtils {
     fun setNewGmail(value: String) {
         Hawk.put(PREF_GMAIL_NAME, value)
     }
-
     fun getNewGmail(): String {
         return Hawk.get(PREF_GMAIL_NAME, "")
+    }
+
+    fun setImageUser(value: Uri) {
+        Hawk.put(PREF_USER_IMAGE, value)
+    }
+
+    fun getImageUser(): Uri {
+        return Hawk.get(PREF_USER_IMAGE)
     }
 
 }

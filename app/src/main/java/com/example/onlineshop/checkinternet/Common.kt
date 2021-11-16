@@ -9,13 +9,11 @@ import com.example.onlineshop.view.MainActivity
 class Common {
     companion object {
         fun isConnectToInternet(context: Context): Boolean {
-
             val connectManager: ConnectivityManager =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = connectManager.activeNetworkInfo
+            var networkInfo = connectManager.activeNetworkInfo
 
             return (networkInfo == null || !networkInfo.isConnected || !networkInfo.isAvailable)
-
         }
 
     }

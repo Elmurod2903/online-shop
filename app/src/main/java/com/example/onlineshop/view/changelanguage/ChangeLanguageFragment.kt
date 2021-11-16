@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi
 import com.example.onlineshop.R
 import com.example.onlineshop.databinding.FragmentChangeLanguageBinding
 import com.example.onlineshop.view.MainActivity
+import com.example.onlineshop.view.home.HomeFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.orhanobut.hawk.Hawk
@@ -47,16 +48,16 @@ class ChangeLanguageFragment : BottomSheetDialogFragment(), RadioGroup.OnChecked
         _binding!!.btnUzbek.setOnClickListener {
             Hawk.put("pref_lang", "uz")
             Toast.makeText(requireActivity(), "O'zbek tili ", Toast.LENGTH_SHORT).show()
-            requireActivity().finish()
-            startActivity(Intent(requireActivity(), MainActivity::class.java))
+            requireActivity().recreate()
+            dismiss()
         }
         _binding!!.btnEnglish.setOnClickListener {
             Hawk.put("pref_lang", "en")
             Toast.makeText(requireActivity(), "English language ", Toast.LENGTH_SHORT).show()
-
-            requireActivity().finish()
-            startActivity(Intent(requireActivity(), MainActivity::class.java))
+            requireActivity().recreate()
+            dismiss()
         }
+
         val prefs = requireActivity().getSharedPreferences("LANG_PREFS", MODE_PRIVATE)
         _binding!!.rg.check(prefs.getInt("lang_btn_id", R.id.btn_english));
         _binding!!.rg.setOnCheckedChangeListener(this);
