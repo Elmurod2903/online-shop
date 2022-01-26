@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.onlineshop.R
+import com.example.onlineshop.checkinternet.Common
 import com.example.onlineshop.databinding.FragmentFavoriteBinding
 import com.example.onlineshop.utils.LocaleManager
 import com.example.onlineshop.view.home.adapter.TopProductAdapter
@@ -19,7 +20,8 @@ import com.example.onlineshop.viewmodel.MainViewModel
 
 class FavoriteFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
-    lateinit var binding: FragmentFavoriteBinding
+    private var _binding: FragmentFavoriteBinding? = null
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,24 +31,31 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+    ): View {
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentFavoriteBinding.bind(view)
-        binding.swipeFavorite.setOnRefreshListener {
-            loadData()
+        _binding = FragmentFavoriteBinding.bind(view)
+        _binding!!.swipeFavorite.setOnRefreshListener {
+            if (!Common.isConnectToInternet(requireContext())) {
+                _binding!!.swipeFavorite.isRefreshing = true
+                loadData()
+            } else {
+                _binding!!.swipeFavorite.isRefreshing = false
+
+            }
         }
         viewModel.topProductData.observe(requireActivity(), Observer {
-            binding.rvFavoriteByIdProduct.adapter = TopProductAdapter(it)
+            _binding!!.rvFavoriteByIdProduct.adapter = TopProductAdapter(it)
         })
         viewModel.error.observe(requireActivity(), Observer {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         })
         viewModel.progress.observe(requireActivity(), Observer {
-            binding.swipeFavorite.isRefreshing = it
+            _binding!!.swipeFavorite.isRefreshing = it
         })
         loadData()
 
@@ -54,14 +63,19 @@ class FavoriteFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        loadData()
+        if (!Common.isConnectToInternet(requireContext())) {
+            _binding?.swipeFavorite?.isRefreshing = true
+            loadData()
+        } else {
+            _binding?.swipeFavorite?.isRefreshing = false
+
+        }
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         LocaleManager.setLocale(context)
     }
-
 
 
     private fun loadData() {

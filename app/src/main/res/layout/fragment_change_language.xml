@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.changelanguage.ChangeLanguageFragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +38,6 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:textColor="@drawable/radio_text_color"
                 android:id="@+id/btn_uzbek"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -51,11 +49,11 @@
                 android:fontFamily="@font/bradlefens"
                 android:paddingLeft="20dp"
                 android:text="Uzbek"
+                android:textColor="@drawable/radio_text_color"
                 android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/btn_english"
-android:textColor="@drawable/radio_text_color"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:background="@drawable/radio_button_selector"
@@ -65,38 +63,9 @@ android:textColor="@drawable/radio_text_color"
                 android:fontFamily="@font/bradlefens"
                 android:paddingLeft="20dp"
                 android:text="English"
+                android:textColor="@drawable/radio_text_color"
                 android:textSize="18sp" />
         </RadioGroup>
-
-
-        <!--        <com.google.android.material.button.MaterialButton-->
-        <!--            android:id="@+id/btn_uzbek"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="55dp"-->
-        <!--            android:layout_margin="8dp"-->
-        <!--            android:drawableLeft="@drawable/ic_uzbekistan"-->
-        <!--            android:fontFamily="@font/bradlefens"-->
-        <!--            android:paddingRight="50dp"-->
-        <!--            android:text="UZBEK"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="18sp"-->
-        <!--            app:cornerRadius="30dp"-->
-        <!--            />-->
-
-        <!--        <com.google.android.material.button.MaterialButton-->
-        <!--            android:id="@+id/btn_english"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="55dp"-->
-        <!--            android:layout_margin="8dp"-->
-        <!--            android:drawableLeft="@drawable/ic_united_states"-->
-        <!--            android:fontFamily="@font/bradlefens"-->
-        <!--            android:paddingRight="50dp"-->
-        <!--            android:text="ENGLISH"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="18sp"-->
-        <!--            app:cornerRadius="30dp"-->
-        <!--            />-->
-
 
     </LinearLayout>
 

@@ -12,6 +12,8 @@ import androidx.annotation.RequiresApi
 import com.example.onlineshop.checkinternet.NetworkChangeListener
 import com.example.onlineshop.databinding.ActivityGmailBinding
 import com.example.onlineshop.utils.PrefUtils
+import com.example.onlineshop.utils.ktx.errorToast
+import com.example.onlineshop.utils.ktx.successToast
 
 class GmailActivity : AppCompatActivity() {
     lateinit var binding: ActivityGmailBinding
@@ -34,13 +36,13 @@ class GmailActivity : AppCompatActivity() {
     }
 
     private fun validateEmailAddress(newGmail: String) {
-        if (!newGmail.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(newGmail).matches()) {
-            Toast.makeText(this, "New email validated successfully", Toast.LENGTH_SHORT).show()
+        if (newGmail.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(newGmail).matches()) {
+            successToast("Success")
             PrefUtils.setNewGmail(newGmail)
             finish()
 
         } else {
-            Toast.makeText(this, "Invalidated email address", Toast.LENGTH_SHORT).show()
+            errorToast("Error")
         }
     }
 

@@ -6,6 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="red">#FC2F53</color>
+    <color name="green">#4FDA64</color>
     <color name="white">#FFFFFFFF</color>
     <color name="card_color_blue">#5089C6</color>
     <color name="weight_gray">#C6C0C0</color>

@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.onlineshop.checkinternet.Common
 import com.example.onlineshop.databinding.FragmentHomeBinding
 import com.example.onlineshop.model.CategoryModel
 import com.example.onlineshop.utils.Constants
@@ -44,10 +45,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding!!.swipeRefresh.setOnRefreshListener {
-            loadData()
+            if (!Common.isConnectToInternet(requireContext())) {
+                _binding!!.swipeRefresh.isRefreshing = false
+                loadData()
+            } else {
+                _binding!!.swipeRefresh.isRefreshing = false
+            }
         }
         viewModelObserve()
-        _binding?.rvCategory?.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        _binding?.rvCategory?.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         loadData()
     }
 
@@ -84,11 +91,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadData() {
-        viewModel.getAllCategoryDB()
-        viewModel.getCategories()
-        viewModel.getTopProducts()
-        viewModel.getOffers()
-        viewModel.getAllProductsDB()
+        if (Common.isConnectToInternet(requireContext())) {
+            // false
+            viewModel.getAllCategoryDB()
+            viewModel.getAllProductsDB()
+        } else {
+            //true
+            viewModel.getCategories()
+            viewModel.getOffers()
+            viewModel.getTopProducts()
+        }
 
     }
 
@@ -106,4 +118,5 @@ class HomeFragment : Fragment() {
         @JvmStatic
         fun newInstance() = HomeFragment()
     }
+
 }

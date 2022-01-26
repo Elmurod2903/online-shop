@@ -29,11 +29,9 @@ class NetworkChangeListener(private val activity: Activity, context: Context) :
             if (Common.isConnectToInternet(context)) {
                 // false
                 alertDialog.show()
-
             } else {
                 // true
                 alertDialog?.dismiss()
-
             }
         } catch (e: NullPointerException) {
             e.printStackTrace()

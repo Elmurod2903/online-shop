@@ -23,6 +23,8 @@ import com.example.onlineshop.databinding.FragmentProfileBinding
 import com.example.onlineshop.utils.LocaleManager
 import com.example.onlineshop.view.GmailActivity
 import com.example.onlineshop.utils.PrefUtils
+import com.example.onlineshop.utils.ktx.errorToast
+import com.example.onlineshop.utils.ktx.successToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.orhanobut.hawk.Hawk
 import java.util.jar.Manifest
@@ -74,8 +76,8 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-            val newGmail = PrefUtils.getNewGmail()
-            _binding?.gmailNumber?.setText(newGmail).toString()
+        val newGmail = PrefUtils.getNewGmail()
+        _binding?.gmailNumber?.setText(newGmail).toString()
 
     }
 
@@ -127,8 +129,11 @@ class ProfileFragment : Fragment() {
 //                val imageStream = context?.openFileInput(imageUri.toString())
 //                val selectedImage = BitmapFactory.decodeStream(imageStream)
                 _binding?.userImage?.setImageBitmap(bitmap)
-
+                successToast("Success")
                 pathToImage = bitmap.toString()
+
+            }else{
+                errorToast("Error")
             }
         }
 

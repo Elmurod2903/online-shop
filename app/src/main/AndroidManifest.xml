@@ -46,6 +46,8 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
                     tools:ignore="BatteryLife" />
+                <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </receiver>
     </application>
