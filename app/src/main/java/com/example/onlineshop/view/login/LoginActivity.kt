@@ -1,13 +1,21 @@
 package com.example.onlineshop.view.login
 
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.onlineshop.checkinternet.NetworkChangeListener
 import com.example.onlineshop.databinding.ActivityLoginBinding
+import com.example.onlineshop.utils.MaskWatcher
 import com.example.onlineshop.view.MainActivity
 import com.example.onlineshop.utils.PrefUtils
 import com.example.onlineshop.viewmodel.MainViewModel
@@ -22,13 +30,17 @@ enum class LoginState {
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     lateinit var viewModel: MainViewModel
+    private var broadcastReceiver: BroadcastReceiver? = null
 
     var state = LoginState.CHECK_PHONE
     var phone = ""
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        broadcastReceiver = NetworkChangeListener(this, this)
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
@@ -137,5 +149,16 @@ class LoginActivity : AppCompatActivity() {
                 binding.edPhone.isEnabled = false
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        registerReceiver(broadcastReceiver, intentFilter)
+    }
+
+    override fun onStop() {
+        unregisterReceiver(broadcastReceiver)
+        super.onStop()
     }
 }

@@ -77,19 +77,16 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun loadSettings() {
-        viewBinding.ivSetting.setOnClickListener {
+        viewBinding.ivLangSetting.setOnClickListener {
             val fragmentChangeLanguage = ChangeLanguageFragment.newInstance()
             fragmentChangeLanguage.show(supportFragmentManager, fragmentChangeLanguage.tag)
         }
     }
 
-
-
     private fun createProfile() {
         viewBinding.userProfile.setOnClickListener {
             initProfile()
         }
-
     }
 
     private fun initProfile() {
@@ -98,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         activeFragment = profileFragment
         viewBinding.tvTitleNav.text = resources.getString(R.string.profile)
         viewBinding.cardUser.visibility = View.GONE
-        viewBinding.ivSetting.visibility = View.VISIBLE
+        viewBinding.ivLangSetting.visibility = View.VISIBLE
         viewBinding.bottonNavigationView.selectedItemId = R.id.profile
 //        viewBinding.userProfile.setImageResource(PrefUtils.getImageUser().toInt())
     }
@@ -112,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 activeFragment = homeFragment
                 viewBinding.tvTitleNav.text = resources.getString(R.string.home)
                 viewBinding.cardUser.visibility = View.VISIBLE
-                viewBinding.ivSetting.visibility = View.GONE
+                viewBinding.ivLangSetting.visibility = View.GONE
 
             }
             R.id.cart -> {
@@ -122,7 +119,7 @@ class MainActivity : AppCompatActivity() {
                 activeFragment = cartFragment
                 viewBinding.tvTitleNav.text = resources.getString(R.string.cart)
                 viewBinding.cardUser.visibility = View.VISIBLE
-                viewBinding.ivSetting.visibility = View.GONE
+                viewBinding.ivLangSetting.visibility = View.GONE
 
             }
             R.id.favorite -> {
@@ -132,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 activeFragment = favoriteFragment
                 viewBinding.tvTitleNav.text = resources.getString(R.string.favorite)
                 viewBinding.cardUser.visibility = View.VISIBLE
-                viewBinding.ivSetting.visibility = View.GONE
+                viewBinding.ivLangSetting.visibility = View.GONE
 
 
             }
@@ -143,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                 activeFragment = profileFragment
                 viewBinding.tvTitleNav.text = resources.getString(R.string.profile)
                 viewBinding.cardUser.visibility = View.GONE
-                viewBinding.ivSetting.visibility = View.VISIBLE
+                viewBinding.ivLangSetting.visibility = View.VISIBLE
 
 
             }

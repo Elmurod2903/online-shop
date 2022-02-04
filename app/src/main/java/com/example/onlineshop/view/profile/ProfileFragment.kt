@@ -124,14 +124,10 @@ class ProfileFragment : Fragment() {
 
             if (result.resultCode == RESULT_OK) {
                 val imageUri: Uri? = result.data?.data
-//                PrefUtils.setImageUser(image)
                 val bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, imageUri)
-//                val imageStream = context?.openFileInput(imageUri.toString())
-//                val selectedImage = BitmapFactory.decodeStream(imageStream)
                 _binding?.userImage?.setImageBitmap(bitmap)
                 successToast("Success")
                 pathToImage = bitmap.toString()
-
             }else{
                 errorToast("Error")
             }

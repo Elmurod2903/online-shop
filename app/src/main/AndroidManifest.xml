@@ -19,7 +19,7 @@
         android:theme="@style/Theme.OnlineShop"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".view.GmailActivity"></activity>
+        <activity android:name=".view.GmailActivity" />
         <activity android:name=".view.login.LoginActivity" />
 
         <meta-data
@@ -42,7 +42,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".checkinternet.NetworkChangeListener">
+        <receiver android:name=".checkinternet.NetworkChangeListener"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
                     tools:ignore="BatteryLife" />

@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.onlineshop.R
 import com.example.onlineshop.databinding.FragmentChangeLanguageBinding
+import com.example.onlineshop.utils.ktx.successToast
 import com.example.onlineshop.view.MainActivity
 import com.example.onlineshop.view.home.HomeFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -47,14 +48,16 @@ class ChangeLanguageFragment : BottomSheetDialogFragment(), RadioGroup.OnChecked
 
         _binding!!.btnUzbek.setOnClickListener {
             Hawk.put("pref_lang", "uz")
-            Toast.makeText(requireActivity(), "O'zbek tili ", Toast.LENGTH_SHORT).show()
-            requireActivity().recreate()
+            successToast(getString(R.string.uzbek))
+            requireActivity().finish()
+            startActivity(Intent(context, MainActivity::class.java))
             dismiss()
         }
         _binding!!.btnEnglish.setOnClickListener {
             Hawk.put("pref_lang", "en")
-            Toast.makeText(requireActivity(), "English language ", Toast.LENGTH_SHORT).show()
-            requireActivity().recreate()
+            successToast(getString(R.string.english))
+            requireActivity().finish()
+            startActivity(Intent(context, MainActivity::class.java))
             dismiss()
         }
 

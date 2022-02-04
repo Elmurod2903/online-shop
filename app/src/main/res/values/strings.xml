@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Online Shop</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="detail">Details</string>
     <string name="home">Home</string>
     <string name="favorite">Favorites</string>
@@ -38,4 +37,7 @@
     <string name="no_internet_txt">  Your internet connection is currently not available please check</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="uzbek">O\'zbek tili</string>
+    <string name="english">English language</string>
+
 </resources>
